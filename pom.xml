@@ -22,6 +22,12 @@
     <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
+    <!--
+      Spring Boot 3.1.6 ships Byte Buddy 1.14.x, which Mockito uses to create mocks.
+      That version refuses to run on JDK 23+. Overriding the version managed by the
+      parent POM lets the tests run on newer JDKs as well as on Java 17.
+    -->
+    <byte-buddy.version>1.17.5</byte-buddy.version>
   </properties>
 
   <dependencies>
